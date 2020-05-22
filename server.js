@@ -1,26 +1,23 @@
 //CommonJS
-// const const app = require('express')
-const express = require('express')
-const app = express()
+// const express = require('express')
+// const app = express()
+
+const app = require('express')()
 const port = process.env.PORT || 3000
+const bodyParser = require('body-parser')
+
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({extended: true}))
+
 
 app.listen(port, () => {
-    console.log(`Server rodando na porta ${port}`)
+    console.log(`Server running in port ${port}`);
 })
 
 app.get('/', (req, res) => {
-    res.json({mensagem:"olá mundo"})
+    res.json({mensagem: "Olá Mundo"})
 })
 
-app.get('/users', (req, res)=> {
-    res.json({
-        nome: "Lucas",
-        cpf: "71670220125",
-        imc: "32.1",
-        registros: [
-            {peso: 90, altura: 1.80, imc: 32.1, data: 22/05/2020},
-            {peso: 90, altura: 1.80, imc: 29.1, data: 22/05/2020},
-            {peso: 90, altura: 1.80, imc: 27.1, data: 22/05/2020}
-        ]
-    })
-})
+require('./src/routers/PessoaRouter')(app)
+
