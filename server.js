@@ -20,4 +20,4 @@ app.get('/', (req, res) => {
 })
 
 require('./src/routers/PessoaRouter')(app)
-
+require('./src/routers/RegistroRouter')(app)
