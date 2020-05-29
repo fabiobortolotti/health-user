@@ -15,10 +15,10 @@
     <label for="check" class="checkbtn">
       <i class="fa fa-bars"></i>
     </label>
-    <label class="logo">IMC</label>
+    <label class="logo"> <img class="mb-4" src="https://lh3.googleusercontent.com/proxy/WREZmRckMhttSNUjsRJGHJbSEOM7TJtdRJgmX4--i8j9T5VOSzOOCDsKlx0K4tdzPTrDmO_UhIIGshTplP43bl_u2EIFh4ZRPXkRfyH5POQaeZvxGJCUNzmur4P68c2Fiq455CCubWHk8tqrqz5z" alt="" width="72" height="72"></label>
     <ul>
-      <li><a href="" class="">Calcular IMC</a></li>
-      <li><a href="#" class="">Registros</a></li>
+      <li><a href="calculo-imc.html" class="">Calcular IMC</a></li>
+      <li><a href="registros.html" class="">Registros</a></li>
     </ul>
   </nav>
   <section>
@@ -36,10 +36,55 @@
         <i class="fa fa-user"></i>
         </div>
         <div class="form-group">
-          <input type="submit" value="Calcular">
+          <input data-toggle="modal" data-target="#modalExemplo" class="btn btn-lg btn-form text-white" value="Calcular">
         </div>
       </form>
     </div>
   </section>
+  <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script>
+    $('#meuModal').on('shown.bs.modal', function () {
+  $('#meuInput').trigger('focus')
+})
+  </script>
 </body>
+
+
+ <!-- Modal -->
+ <div class="modal fade" id="modalExemplo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Seu IMC é: </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <table class="table table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th class="text-center" scope="col"><i class="fa fa-weight">  </i> IMC</th>
+                    <th class="text-center" scope="col"><i class="fa fa-poll"></i> Resultado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-center">29,1</td>
+                    <td class="text-center">Obesidade</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn btn-form text-white"> <a href="registros.html"> Ver seu Histórico </a></button>
+        </div>
+      </div>
+    </div>
+  </div>
 </html>
