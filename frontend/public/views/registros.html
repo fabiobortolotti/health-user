@@ -1,0 +1,33 @@
+<section ng-controller="RegistrosController">
+    <div class="center-registros">
+        <div class="header">
+            Seus registros de IMC
+        </div>
+        <form>
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th class="text-center" scope="col"> <i class="fa fa-calendar-alt"> </i> Data</th>
+                        <th class="text-center" scope="col"><i class="fa fa-weight-hanging"></i> Peso</th>
+                        <th class="text-center" scope="col"><i class="fa fa-arrows-alt-v"></i> Altura</th>
+                        <th class="text-center" scope="col"><i class="fa fa-weight">  </i> IMC</th>
+                        <th class="text-center" scope="col"><i class="fa fa-poll"></i> Resultado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="registro in registrosPessoa">
+                        <td scope="text-center">{{registro.data | date : "dd/MM/yyyy" }}</td>
+                        <td class="text-center">{{registro.peso}}</td>
+                        <td class="text-center">{{registro.altura}}</td>
+                        <td class="text-center">{{registro.imc}}</td>
+                        <td class="text-center">{{registro.resultado}}</td>
+                    </tr>
+                </tbody>
+            </table>
+    
+            <a href="calculo-imc.html" class="btn btn-lg btn-block btn-form">Calcular Novo</a>
+       
+        </form>
+
+    </div>
+</section>

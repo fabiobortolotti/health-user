@@ -63,7 +63,6 @@ Pessoa.AlterarPessoa = (id, pessoa, result) =>{
 
         console.log('Objeto alterado com sucesso', {id: res.insertId, ...pessoa})
         result(null, {id: id, ...pessoa})
-
     })
 }
 

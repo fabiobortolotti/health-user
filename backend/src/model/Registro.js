@@ -5,6 +5,7 @@ const Registro = function(registro){
     this.altura = registro.altura
     this.imc = registro.imc
     this.data = registro.data
+    this.resultado = registro.resultado
     this.person_idperson = registro.person_idperson
 }
 
