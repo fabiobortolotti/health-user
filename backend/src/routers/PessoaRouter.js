@@ -2,6 +2,7 @@ module.exports = app => {
 
     const PessoaController = require('../controller/PessoaController')
     const AuthController = require('../controller/AuthController')
+    //const auth = require('../config/auth')
 
     //Consultar pessoas
     app.get('/pessoas', PessoaController.GetPessoa)

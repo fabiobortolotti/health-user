@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const _ = require('lodash')
 const Pessoa = require('../model/Pessoa')
-const secret = 'ero0u´iqewfJ[OG3492-P'
+const env = require('../.env')
 //Factory - Design Pattern
 
 const sendErrorsFromDB = (res, dbErrors) => {
@@ -23,7 +23,7 @@ const Login = (req, res, next) => {
                 errors: ['Usuário ou senha invalidos']
             })
         }else if (dados && bcrypt.compareSync(senha, dados.senha)) {
-            const token = jwt.sign({ dados }, secret, {
+            const token = jwt.sign({ dados }, env.authSecret, {
                 expiresIn: "1 day"
             })
             const { idperson, cpf, nome } = dados
@@ -35,4 +35,14 @@ const Login = (req, res, next) => {
 
 }
 
-module.exports = { Login }
+//Verificar se o token ainda é valido
+const validateToken = (req, res, next) => {
+    const token = req.body.token || ''
+    jwt.verify(token, env.authSecret, function(err, decoded) {
+        return res.status(200).send({
+            valid: !err
+        })
+    })
+}
+
+module.exports = { Login, validateToken }
