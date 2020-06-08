@@ -35,6 +35,23 @@ Pessoa.GetPessoaById = (id, result) => {
     })
 }
 
+Pessoa.GetPessoaByCPF = (cpf, result) => {
+    connection.query('SELECT * FROM pessoas WHERE cpf = ' + cpf, (err, res) => {
+        if(err){
+            console.log('Erro: ', err)
+            result(null, err)
+            return
+        }
+        if(res.length){
+            console.log('Objeto Localizado ', res[0])
+            result(null, res[0])
+            return
+        }
+        //Objeto Not Found
+        result(null, {kind: 'not_found'})
+    })
+}
+
 Pessoa.InserirPessoa = (pessoa, result) => {
     connection.query('INSERT INTO pessoas SET ?', pessoa, (err, res) => {
         if(err){
