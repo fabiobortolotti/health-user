@@ -1,0 +1,6 @@
+O usuário entrar com o CPF e senha - Sign
+	- Entrar com 2 parametros (cpf, senha) - BAckend devolve um token
+O usuário podera criar um cadastro para ele - SignUp
+O usurio podera sair da aplicação - SignOut
+
+

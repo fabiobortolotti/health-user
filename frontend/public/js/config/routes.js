@@ -6,7 +6,11 @@
             $stateProvider.state('registros', {
                 url: '/registros',
                 templateUrl: 'views/registros.html'
+            }).state('calcularImc', {
+                url: '/calcularImc',
+                templateUrl: 'views/calculo-imc.html'
             })
+            
         }
     ])
 })()

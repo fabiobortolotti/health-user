@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="HealthUser">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aplicação Calculo IMC</title>
     <link  rel="stylesheet" href="js/libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="js/libs/angular-toastr/dist/angular-toastr.min.css">
     <link rel="stylesheet" href="css/auth.css">
 </head>
 
-    <body class="text-center">
+    <body class="text-center" ng-controller="AuthCtrl as auth">
         <form class="form-signin">
           <img class="mb-4" src="https://lh3.googleusercontent.com/bRg_-Ka2SoPg1xXR1PBnGGqrKfpQH4dyjCdmgwxBcO16GkYWyUxw-Q8ZOuSnTyrvTqPd=w300" alt="" width="72" height="72">
           <h1 class="h3 mb-3 font-weight-normal">Calcule seu imc</h1>
           <label for="inputCPF" class="sr-only">CPF</label>
-          <input type="text" id="inputCPF" class="form-control" placeholder="CPF" required autofocus>
+          <input ng-model="auth.user.cpf" type="text" id="inputCPF" class="form-control" placeholder="CPF" required autofocus>
           <label for="inputPassword" class="sr-only">Senha</label>
-          <input type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
+          <input ng-model="auth.user.senha" type="password" id="inputPassword" class="form-control" placeholder="Senha" required>
     
-          <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+          <button ng-click="auth.login()" class="btn btn-lg btn-primary btn-block">Entrar</button>
           <p class="mt-5 mb-3 text-muted">&copy;
               <script>
                   let now = new Date
@@ -25,6 +26,21 @@
               </script>
           </p>
         </form>
+        <script src="./js/libs/jquery/dist/jquery.min.js"></script>
+        <script src="./js/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="./js/libs/angular/angular.min.js"></script>
+        <script src="./js/libs/@uirouter/angularjs/release/angular-ui-router.js"></script>
+        <script src="./js/libs/angular-animate/angular-animate.min.js"></script>
+        <script  src="./js/libs/angular-toastr/dist/angular-toastr.min.js"></script>
+        <script src="./main.js"></script>]
+
+        <script src="./js/config/consts.js"></script>
+        <!--Factories-->
+        <script src="./js/common/msgsFactory.js"></script>
+        <script src="./js/common/authFactory.js"></script>
+
+        <!--Controller-->
+        <script src="./js/controllers/authController.js"></script>
       </body>
 
 </html>

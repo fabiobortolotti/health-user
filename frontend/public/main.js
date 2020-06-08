@@ -1,1 +1,1 @@
-angular.module('HealthUser', ['ui.router'])
+angular.module('HealthUser', ['ui.router','ngAnimate','toastr'])
